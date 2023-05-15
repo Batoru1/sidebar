@@ -1,0 +1,124 @@
+body {
+  background-color: rgb(221, 236, 206);
+  margin: 0; /*to remove borders*/
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo {
+  width: 4em;
+  height: 4em;
+}
+
+.toggle-btn {
+  background-color: transparent; /*to remove the default grey background*/
+  border: none; /*to remove the default grey background*/
+  font-size: x-large;
+  color: rgb(150, 206, 187);
+}
+
+.close-btn {
+  background-color: transparent;
+  border: none;
+  font-size: x-large;
+  font-weight: 900;
+  color: rgb(227, 83, 189);
+  transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+  animation: rotateOneSide 0.5s ease-in-out 4;
+  animation-direction: normal;
+}
+
+.close-btn:not(:hover) {
+  animation: rotateOppositeSide 0.5s ease-in-out 4;
+  animation-direction: reverse;
+}
+
+@keyframes rotateOneSide {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateOppositeSide {
+  0% {
+    transform: rotate(360deg);
+  }
+  25% {
+    transform: rotate(270deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.toggle-btn:hover {
+  cursor: pointer;
+  color: rgb(186, 213, 204);
+  transform: rotate(-90deg);
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.sidebar {
+  background-color: aliceblue;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.links {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  align-items: center;
+  text-transform: capitalize;
+  letter-spacing: 0.2em;
+  transition: all 0.5s ease-out;
+}
+
+.links a {
+  text-decoration: none;
+  color: rgb(100, 76, 46);
+}
+
+.links a:hover {
+  color: rgb(160, 103, 32);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+  align-items: center;
+  margin-right: 2em;
+  transition: all 2s ease;
+}
+
+.social-icons a :hover {
+  color: rgb(126, 207, 126);
+}
+
+.social-icons a {
+  color: rgb(56, 159, 56);
+}
