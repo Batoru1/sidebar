@@ -2,18 +2,68 @@ body {
   background-color: rgb(221, 236, 206);
   margin: 0; /*to remove borders*/
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.logo {
-  width: 4em;
-  height: 4em;
+  display: flex;
+  flex-direction: column;
 }
 
 .toggle-btn {
   background-color: transparent; /*to remove the default grey background*/
   border: none; /*to remove the default grey background*/
-  font-size: x-large;
+  font-size: xxx-large;
   color: rgb(150, 206, 187);
+  align-self: flex-end;
+  margin: 1em;
+  animation: rotateAndBounce 2s ease-in-out infinite;
+}
+
+.toggle-btn:hover {
+  cursor: pointer;
+  color: rgb(186, 213, 204);
+}
+
+@keyframes rotateAndBounce {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(90deg) scale(1.5);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.sidebar {
+  background-color: aliceblue;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* positioning sidebar to the left */
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 25em;
+  /* hides sidebar by pushing it to the left */
+  transform: translateX(-100%);
+}
+/* add this to js to show sidebar again */
+.show-sidebar {
+  transform: translate(0);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: -14em;
+}
+
+.logo {
+  width: 4em;
+  height: 4em;
 }
 
 .close-btn {
@@ -26,27 +76,17 @@ body {
 }
 
 .close-btn:hover {
-  animation: rotateOneSide 0.5s ease-in-out 4;
-  animation-direction: normal;
+  animation: rotateOneSide 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .close-btn:not(:hover) {
-  animation: rotateOppositeSide 0.5s ease-in-out 4;
-  animation-direction: reverse;
+  animation: rotateOppositeSide 0.5s ease-in-out;
 }
-
+/* making close-btn rotate */
 @keyframes rotateOneSide {
   0% {
     transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
   }
   100% {
     transform: rotate(360deg);
@@ -54,52 +94,37 @@ body {
 }
 
 @keyframes rotateOppositeSide {
-  0% {
-    transform: rotate(360deg);
-  }
-  25% {
-    transform: rotate(270deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(90deg);
-  }
   100% {
     transform: rotate(0deg);
   }
-}
-
-.toggle-btn:hover {
-  cursor: pointer;
-  color: rgb(186, 213, 204);
-  transform: rotate(-90deg);
-  transition-duration: 0.5s;
-  transition-timing-function: ease-in-out;
-}
-
-.sidebar {
-  background-color: aliceblue;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  0% {
+    transform: rotate(360deg);
+  }
 }
 
 .links {
   display: flex;
+  flex-direction: column;
   gap: 2em;
   list-style: none;
-  align-items: center;
+  align-items: flex-start;
   text-transform: capitalize;
   letter-spacing: 0.2em;
   transition: all 0.5s ease-out;
+  margin-top: -12em;
+  margin-left: -0.8em;
+}
+/* set background color to all the links, wanted this color to each link when hovered on, but don't have time */
+.links:hover {
+  background-color: rgb(228, 216, 199);
 }
 
 .links a {
   text-decoration: none;
   color: rgb(100, 76, 46);
+  font-size: x-large;
+  display: block;
+  width: 100%;
 }
 
 .links a:hover {
@@ -108,11 +133,11 @@ body {
 
 .social-icons {
   display: flex;
+  justify-content: center;
   gap: 1em;
   list-style: none;
-  align-items: center;
-  margin-right: 2em;
   transition: all 2s ease;
+  margin-bottom: -18em;
 }
 
 .social-icons a :hover {
@@ -121,4 +146,5 @@ body {
 
 .social-icons a {
   color: rgb(56, 159, 56);
+  font-size: x-large;
 }
