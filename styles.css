@@ -150,5 +150,7 @@ body {
 }
 /* for tablets and phones */
 @media only screen and (max-width: 768px) {
-  max-width: 100%;
+  body {
+    max-width: 100%;
+  }
 }
