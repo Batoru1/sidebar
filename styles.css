@@ -148,3 +148,7 @@ body {
   color: rgb(56, 159, 56);
   font-size: x-large;
 }
+/* for tablets and phones */
+@media only screen and (max-width: 768px) {
+  max-width: 100%;
+}
